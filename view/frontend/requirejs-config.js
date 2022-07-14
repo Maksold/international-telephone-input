@@ -7,10 +7,10 @@ var config = {
 
     shim: {
         'intlTelInput': {
-            'deps':['jquery', 'knockout']
+            'deps': ['jquery', 'knockout']
         },
         'internationalTelephoneInput': {
-            'deps':['jquery', 'intlTelInput']
+            'deps': ['jquery', 'intlTelInput']
         }
     }
 };

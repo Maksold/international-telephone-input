@@ -1,29 +1,28 @@
 {
-  "name": "maxmage/international-telephone-input",
-  "description": "International Telephone Input module for Magento 2 ",
-  "require": {
-    "php": "~7.1"
-  },
-  "type": "magento2-module",
-  "version": "1.0.2",
-  "license": "OSL-3.0",
-  "autoload": {
-    "files": [ "registration.php" ],
-    "psr-4": {
-      "MaxMage\\InternationalTelephoneInput\\": ""
-    }
-  },
-  "authors": [
-    {
-      "name": "MaxMage Core Team",
-      "email": "maxmagedev@gmail.com"
+    "name": "maxmage/international-telephone-input",
+    "description": "International Telephone Input module for Magento 2 ",
+    "require": {
+        "php": "~7.1.0|~7.2.0|~7.3.0|~7.4.0"
     },
-    {
-      "name": "Sebfie",
-      "email": "sebastien.fieloux@gmail.com"
-    }
-  ],
-  "support": {
-    "email": "maxmagedev@gmail.com"
-  }
+    "type": "magento2-module",
+    "version": "1.0.2",
+    "license": "OSL-3.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MaxMage\\InternationalTelephoneInput\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "MaxMage Core Team",
+            "email": "maxmagedev@gmail.com"
+        },
+        {
+            "name": "Sebfie",
+            "email": "sebastien.fieloux@gmail.com"
+        }
+    ]
 }

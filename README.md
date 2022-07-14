@@ -31,5 +31,5 @@ Integration to Magento 2 a jQuery plugin for entering and validating internation
 1. Enable the International Telephone Input module in Magento® Admin under *Stores* >
    *Configuration* > *Customers* > *International Telephone Input*.
 
-    ![Disable/Enable International Telephone Input module](https://i.imgur.com/RVYyjqj.png "Disable/Enable International Telephone Input module")
+   ![Disable/Enable International Telephone Input module](https://i.imgur.com/RVYyjqj.png "Disable/Enable International Telephone Input module")
 

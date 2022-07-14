@@ -16,7 +16,6 @@ use MaxMage\InternationalTelephoneInput\Helper\Data;
 
 class LayoutProcessor
 {
-
     /**
      * @var Data
      */
@@ -24,6 +23,7 @@ class LayoutProcessor
 
     /**
      * LayoutProcessor constructor.
+     *
      * @param Data $helper
      */
     public function __construct(Data $helper)
@@ -33,7 +33,7 @@ class LayoutProcessor
 
     /**
      * @param MageLayoutProcessor $subject
-     * @param $jsLayout
+     * @param                     $jsLayout
      * @return mixed
      */
     public function afterProcess(MageLayoutProcessor $subject, $jsLayout)
@@ -44,7 +44,7 @@ class LayoutProcessor
         }
 
         if (isset($jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']
-            ['children']['shippingAddress']['children']['shipping-address-fieldset']['children']
+                  ['children']['shippingAddress']['children']['shipping-address-fieldset']['children']
         )) {
             $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']
             ['children']['shippingAddress']['children']['shipping-address-fieldset']['children']
@@ -53,11 +53,12 @@ class LayoutProcessor
 
         /* config: checkout/options/display_billing_address_on = payment_method */
         if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-            ['payment']['children']['payments-list']['children']
+                  ['payment']['children']['payments-list']['children']
         )) {
 
             foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                     ['payment']['children']['payments-list']['children'] as $key => $payment) {
+                     ['payment']['children']['payments-list']['children'] as $key => $payment
+            ) {
 
                 $method = substr($key, 0, -5);
 
@@ -70,7 +71,7 @@ class LayoutProcessor
 
         /* config: checkout/options/display_billing_address_on = payment_page */
         if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-            ['payment']['children']['afterMethods']['children']['billing-address-form']
+                  ['payment']['children']['afterMethods']['children']['billing-address-form']
         )) {
 
             $method = 'shared';

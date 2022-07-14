@@ -3,7 +3,6 @@
     <head>
         <css src="MaxMage_InternationalTelephoneInput::css/intlTelInput.css"/>
     </head>
-
     <body>
         <referenceContainer name="page.bottom.container">
             <block class="MaxMage\InternationalTelephoneInput\Block\PhoneNumber"
