@@ -18,9 +18,9 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class Data extends AbstractHelper
 {
-    public const XML_PATH_INTERNATIONAL_TELEPHONE_INPUT_MODULE_ENABLED          = 'internationaltelephoneinput/general/enabled';
-    public const XML_PATH_INTERNATIONAL_TELEPHONE_MULTISELECT_COUNTRIES_ALLOWED = 'internationaltelephoneinput/general/allow';
-    public const XML_PATH_PREFERED_COUNTRY                                      = 'general/store_information/country_id';
+    public const XML_PATH_ITI_MODULE_ENABLED                = 'internationaltelephoneinput/general/enabled';
+    public const XML_PATH_ITI_MULTISELECT_COUNTRIES_ALLOWED = 'internationaltelephoneinput/general/allow';
+    public const XML_PATH_ITI_PREFERRED_COUNTRY             = 'internationaltelephoneinput/general/preferred_country';
 
     /**
      * @var StoreManagerInterface
@@ -42,9 +42,9 @@ class Data extends AbstractHelper
     /**
      * @return mixed
      */
-    public function isModuleEnabled()
+    public function isEnabled()
     {
-        return $this->getConfig(self::XML_PATH_INTERNATIONAL_TELEPHONE_INPUT_MODULE_ENABLED);
+        return $this->getConfig(self::XML_PATH_ITI_MODULE_ENABLED);
     }
 
     /**
@@ -59,17 +59,17 @@ class Data extends AbstractHelper
     /**
      * @return mixed
      */
-    public function allowedCountries()
+    public function getAllowedCountries()
     {
-        return $this->getConfig(self::XML_PATH_INTERNATIONAL_TELEPHONE_MULTISELECT_COUNTRIES_ALLOWED);
+        return $this->getConfig(self::XML_PATH_ITI_MULTISELECT_COUNTRIES_ALLOWED);
     }
 
     /**
      * @return mixed
      */
-    public function preferedCountry()
+    public function getPreferredCountry()
     {
-        return $this->getConfig(self::XML_PATH_PREFERED_COUNTRY);
+        return $this->getConfig(self::XML_PATH_ITI_PREFERRED_COUNTRY);
     }
 
     /**
@@ -79,7 +79,7 @@ class Data extends AbstractHelper
      * @param string $method
      * @return array
      */
-    public function telephoneFieldConfig($addressType, $method = '')
+    public function telephoneFieldConfig($addressType, string $method = ''): array
     {
         return [
             'component'       => 'Magento_Ui/js/form/element/abstract',
@@ -99,9 +99,10 @@ class Data extends AbstractHelper
             'provider'        => 'checkoutProvider',
             'sortOrder'       => 120,
             'validation'      => [
-                "required-entry"  => true,
-                "max_text_length" => 255,
-                "min_text_length" => 1,
+                'required-entry'        => true,
+                'max_text_length'       => 255,
+                'min_text_length'       => 1,
+                'validate-phone-number' => true
             ],
             'options'         => [],
             'filterBy'        => null,

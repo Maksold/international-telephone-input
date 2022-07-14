@@ -38,8 +38,7 @@ class LayoutProcessor
      */
     public function afterProcess(MageLayoutProcessor $subject, $jsLayout)
     {
-
-        if (!$this->helper->isModuleEnabled()) {
+        if (!$this->helper->isEnabled()) {
             return $jsLayout;
         }
 

@@ -20,7 +20,6 @@ use \Magento\Directory\Api\CountryInformationAcquirerInterface;
 
 class PhoneNumber extends Template
 {
-
     /**
      * @var Json
      */
@@ -38,8 +37,11 @@ class PhoneNumber extends Template
 
     /**
      * PhoneNumber constructor.
-     * @param Context $context
-     * @param Json $jsonHelper
+     *
+     * @param Context                             $context
+     * @param Json                                $jsonHelper
+     * @param CountryInformationAcquirerInterface $countryInformation
+     * @param Data                                $helper
      */
     public function __construct(
         Context $context,
@@ -62,11 +64,14 @@ class PhoneNumber extends Template
         $config  = [
             "nationalMode" => false,
             "utilsScript"  => $this->getViewFileUrl('MaxMage_InternationalTelephoneInput::js/utils.js'),
-            "preferredCountries" => [$this->helper->preferedCountry()]
         ];
 
-        if ($this->helper->allowedCountries()) {
-            $config["onlyCountries"] = explode(",", $this->helper->allowedCountries());
+        if ($this->helper->getPreferredCountry()) {
+            $config["preferredCountries"] = [$this->helper->getPreferredCountry()];
+        }
+
+        if ($this->helper->getAllowedCountries()) {
+            $config["onlyCountries"] = explode(",", $this->helper->getAllowedCountries());
         }
 
         return $this->jsonHelper->serialize($config);
