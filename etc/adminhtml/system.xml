@@ -12,6 +12,12 @@
                     <label>Module Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="initial_country" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Initial Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment><![CDATA[Specify the initial country as pre-selected in the dropdown list. The first country in the dropdown list will be pre-selected if you leave blank.]]></comment>
+                </field>
                 <field id="allowed_countries" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Allowed Countries</label>
                     <source_model>Magento\Directory\Model\Config\Source\Country</source_model>

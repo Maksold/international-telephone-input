@@ -4,6 +4,7 @@
         <internationaltelephoneinput>
             <general>
                 <enabled>1</enabled>
+                <initial_country></initial_country>
                 <allowed_countries></allowed_countries>
                 <preferred_countries></preferred_countries>
             </general>

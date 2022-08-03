@@ -19,6 +19,7 @@ use Magento\Store\Model\StoreManagerInterface;
 class Data extends AbstractHelper
 {
     public const XML_PATH_ITI_MODULE_ENABLED      = 'internationaltelephoneinput/general/enabled';
+    public const XML_PATH_ITI_INITIAL_COUNTRY     = 'internationaltelephoneinput/general/initial_country';
     public const XML_PATH_ITI_ALLOWED_COUNTRIES   = 'internationaltelephoneinput/general/allowed_countries';
     public const XML_PATH_ITI_PREFERRED_COUNTRIES = 'internationaltelephoneinput/general/preferred_countries';
 
@@ -54,6 +55,14 @@ class Data extends AbstractHelper
     protected function getConfig($configPath)
     {
         return $this->scopeConfig->getValue($configPath, ScopeInterface::SCOPE_STORE, $this->storeManager->getStore()->getId());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInitialCountry()
+    {
+        return $this->getConfig(self::XML_PATH_ITI_INITIAL_COUNTRY);
     }
 
     /**

@@ -57,6 +57,10 @@ class PhoneNumber extends Template
             'utilsScript'      => $this->getViewFileUrl('MaxMage_InternationalTelephoneInput::js/utils.js'),
         ];
 
+        if ($this->helper->getInitialCountry()) {
+            $config['initialCountry'] = $this->helper->getInitialCountry();
+        }
+
         if ($this->helper->getPreferredCountries()) {
             $config['preferredCountries'] = explode(',', $this->helper->getPreferredCountries());
         }
