@@ -30,26 +30,34 @@ class PhoneNumber extends Template
     protected $helper;
 
     /**
+     * @var string
+     */
+    protected $inputSelector;
+
+    /**
      * PhoneNumber constructor.
      *
      * @param Context $context
      * @param Json    $jsonHelper
      * @param Data    $helper
+     * @param string  $inputSelector
      */
     public function __construct(
         Context $context,
         Json $jsonHelper,
-        Data $helper
+        Data $helper,
+        string $inputSelector = "input[name='telephone']"
     ) {
-        $this->jsonHelper = $jsonHelper;
-        $this->helper     = $helper;
+        $this->jsonHelper    = $jsonHelper;
+        $this->helper        = $helper;
+        $this->inputSelector = $inputSelector;
         parent::__construct($context);
     }
 
     /**
      * @return bool|string
      */
-    public function phoneConfig()
+    public function getJsConfig()
     {
         $config = [
             'nationalMode'     => false,
@@ -70,5 +78,21 @@ class PhoneNumber extends Template
         }
 
         return $this->jsonHelper->serialize($config);
+    }
+
+    /**
+     * @param string $selector
+     */
+    public function setInputSelector(string $selector): void
+    {
+        $this->inputSelector = $selector;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInputSelector(): string
+    {
+        return $this->inputSelector;
     }
 }

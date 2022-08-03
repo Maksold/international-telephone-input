@@ -9,8 +9,8 @@
         'intlTelInput'
     ], function ($) {
         maxMageTelephoneRenderComplete = function() {
-            let input = document.querySelector("input[name='telephone']");
-            window.intlTelInput(input, <?php echo $block->phoneConfig(); ?>);
+            let input = document.querySelector("<?= $block->getInputSelector() ?>");
+            window.intlTelInput(input, <?= $block->getJsConfig() ?>);
         }
     });
 </script>
