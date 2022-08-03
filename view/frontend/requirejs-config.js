@@ -4,7 +4,6 @@ var config = {
         "intlTelInputUtils": 'MaxMage_InternationalTelephoneInput/js/utils',
         "internationalTelephoneInput": 'MaxMage_InternationalTelephoneInput/js/internationalTelephoneInput'
     },
-
     shim: {
         'intlTelInput': {
             'deps': ['jquery', 'knockout']
@@ -15,8 +14,8 @@ var config = {
     },
     config: {
         mixins: {
-            'Magento_Ui/js/lib/validation/validator': {
-                'MaxMage_InternationalTelephoneInput/js/phoneValidator': true
+            'mage/validation': {
+                'MaxMage_InternationalTelephoneInput/js/phone-number-validation-mixin': true
             }
         }
     }

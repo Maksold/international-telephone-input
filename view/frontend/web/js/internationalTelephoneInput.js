@@ -2,8 +2,7 @@ define([
     'jquery',
     'intlTelInput'
 ], function ($) {
-    var initIntl = function (config, node) {
-        $(node).intlTelInput(config);
+    return function (config, node) {
+        window.intlTelInput(node, config);
     };
-    return initIntl;
 });
