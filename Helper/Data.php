@@ -18,9 +18,9 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class Data extends AbstractHelper
 {
-    public const XML_PATH_ITI_MODULE_ENABLED                = 'internationaltelephoneinput/general/enabled';
-    public const XML_PATH_ITI_MULTISELECT_COUNTRIES_ALLOWED = 'internationaltelephoneinput/general/allow';
-    public const XML_PATH_ITI_PREFERRED_COUNTRY             = 'internationaltelephoneinput/general/preferred_country';
+    public const XML_PATH_ITI_MODULE_ENABLED      = 'internationaltelephoneinput/general/enabled';
+    public const XML_PATH_ITI_ALLOWED_COUNTRIES   = 'internationaltelephoneinput/general/allowed_countries';
+    public const XML_PATH_ITI_PREFERRED_COUNTRIES = 'internationaltelephoneinput/general/preferred_countries';
 
     /**
      * @var StoreManagerInterface
@@ -61,15 +61,15 @@ class Data extends AbstractHelper
      */
     public function getAllowedCountries()
     {
-        return $this->getConfig(self::XML_PATH_ITI_MULTISELECT_COUNTRIES_ALLOWED);
+        return $this->getConfig(self::XML_PATH_ITI_ALLOWED_COUNTRIES);
     }
 
     /**
      * @return mixed
      */
-    public function getPreferredCountry()
+    public function getPreferredCountries()
     {
-        return $this->getConfig(self::XML_PATH_ITI_PREFERRED_COUNTRY);
+        return $this->getConfig(self::XML_PATH_ITI_PREFERRED_COUNTRIES);
     }
 
     /**
@@ -102,7 +102,7 @@ class Data extends AbstractHelper
                 'required-entry'        => true,
                 'max_text_length'       => 255,
                 'min_text_length'       => 1,
-                'validate-phone-number' => true
+                'validate-phone-number' => true,
             ],
             'options'         => [],
             'filterBy'        => null,
