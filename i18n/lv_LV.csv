@@ -1,0 +1,5 @@
+"Invalid phone number", "Nederīgs tālruņa numurs"
+"Invalid country calling code", "Nederīgs valsts izsaukuma kods"
+"Too short to be a phone number", "Pārāk īss, lai būtu tālruņa numurs"
+"Too long to be a phone number", "Pārāk garš, lai būtu tālruņa numurs"
+"Validator isn't initialized", "Validators nav inicializēts"

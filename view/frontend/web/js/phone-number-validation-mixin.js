@@ -1,7 +1,8 @@
 define([
     'jquery',
+    'mage/translate',
     'intlTelInput'
-], function ($, intlTelInput) {
+], function ($, $t, intlTelInput) {
     'use strict';
 
     return function (validator) {
@@ -10,16 +11,16 @@ define([
             'validate-phone-number',
             function (value, element, params) {
                 const errorMap = [
-                    'Invalid number',
-                    'Invalid country code',
-                    'Too short',
-                    'Too long',
-                    'Invalid number'
+                    $t('Invalid phone number'),
+                    $t('Invalid country calling code'),
+                    $t('Too short to be a phone number'),
+                    $t('Too long to be a phone number'),
+                    $t('Invalid phone number')
                 ];
                 let iti = window.intlTelInputGlobals.getInstance(element);
 
                 if (iti === undefined) {
-                    this.itiValidationMessage = "Validator isn't initialized.";
+                    this.itiValidationMessage = $t("Validator isn't initialized");
                     return false;
                 }
 
@@ -32,7 +33,7 @@ define([
                 return true;
             },
             function () {
-                return $.mage.__(this.itiValidationMessage);
+                return this.itiValidationMessage;
             }
         );
 
