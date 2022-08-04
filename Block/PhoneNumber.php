@@ -35,6 +35,21 @@ class PhoneNumber extends Template
     protected $inputSelector;
 
     /**
+     * @var bool
+     */
+    protected $nationalMode = false;
+
+    /**
+     * @var bool
+     */
+    protected $separateDialCode = true;
+
+    /**
+     * @var string
+     */
+    protected $hiddenInput = '';
+
+    /**
      * PhoneNumber constructor.
      *
      * @param Context $context
@@ -60,10 +75,14 @@ class PhoneNumber extends Template
     public function getJsConfig()
     {
         $config = [
-            'nationalMode'     => false,
-            'separateDialCode' => true,
+            'nationalMode'     => $this->nationalMode,
+            'separateDialCode' => $this->separateDialCode,
             'utilsScript'      => $this->getViewFileUrl('MaxMage_InternationalTelephoneInput::js/utils.js'),
         ];
+
+        if ($this->hiddenInput !== '') {
+            $config['hiddenInput'] = $this->hiddenInput;
+        }
 
         if ($this->helper->getInitialCountry()) {
             $config['initialCountry'] = $this->helper->getInitialCountry();
@@ -94,5 +113,29 @@ class PhoneNumber extends Template
     public function getInputSelector(): string
     {
         return $this->inputSelector;
+    }
+
+    /**
+     * @param bool $nationalMode
+     */
+    public function setNationalMode(bool $nationalMode): void
+    {
+        $this->nationalMode = $nationalMode;
+    }
+
+    /**
+     * @param bool $separateDialCode
+     */
+    public function setSeparateDialCode(bool $separateDialCode): void
+    {
+        $this->separateDialCode = $separateDialCode;
+    }
+
+    /**
+     * @param string $hiddenInput
+     */
+    public function setHiddenInput(string $hiddenInput): void
+    {
+        $this->hiddenInput = $hiddenInput;
     }
 }
