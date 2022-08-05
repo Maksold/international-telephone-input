@@ -30,6 +30,12 @@ define([
                     return false
                 }
 
+                if (iti.hiddenInput !== undefined && iti.options.hiddenInput !== '') {
+                    // Fixes bug when input value is already filled
+                    // but submit event doesn't fire an event to update a hiddenInput value
+                    iti.hiddenInput.value = iti.getNumber();
+                }
+
                 return true;
             },
             function () {
