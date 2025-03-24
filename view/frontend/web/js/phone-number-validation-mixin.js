@@ -30,7 +30,9 @@ define([
                     return false
                 }
 
-                if (iti.hiddenInput !== undefined && iti.options.hiddenInput !== '') {
+                // When minimized options are instead replaced with "d" object
+                const options = iti.options ? iti.options : iti.d;
+                if (iti.hiddenInput !== undefined && (options && options.hiddenInput !== '')) {
                     // Fixes bug when input value is already filled
                     // but submit event doesn't fire an event to update a hiddenInput value
                     iti.hiddenInput.value = iti.getNumber();
