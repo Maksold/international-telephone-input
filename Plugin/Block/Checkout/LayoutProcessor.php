@@ -59,7 +59,7 @@ class LayoutProcessor
                      ['payment']['children']['payments-list']['children'] as $key => $payment
             ) {
 
-                $method = substr($key, 0, -5);
+                $method = substr((string) $key, 0, -5);
 
                 /* telephone */
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']

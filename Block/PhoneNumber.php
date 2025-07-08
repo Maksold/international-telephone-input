@@ -89,11 +89,11 @@ class PhoneNumber extends Template
         }
 
         if ($this->helper->getPreferredCountries()) {
-            $config['preferredCountries'] = explode(',', $this->helper->getPreferredCountries());
+            $config['preferredCountries'] = explode(',', (string) $this->helper->getPreferredCountries());
         }
 
         if ($this->helper->getAllowedCountries()) {
-            $config['onlyCountries'] = explode(',', $this->helper->getAllowedCountries());
+            $config['onlyCountries'] = explode(',', (string) $this->helper->getAllowedCountries());
         }
 
         return $this->jsonHelper->serialize($config);
