@@ -507,7 +507,18 @@
                         this._handleHiddenInputSubmit = function () {
                             _this3.hiddenInput.value = _this3.getNumber();
                         };
-                        if (this.telInput.form) this.telInput.form.addEventListener("submit", this._handleHiddenInputSubmit);
+                                                
+                        if (this.telInput.form) {
+                            if (typeof jQuery !== 'undefined' && jQuery) {
+                                jQuery(this.telInput.form).on("submit", this._handleHiddenInputSubmit);
+                            } else if (typeof require !== 'undefined') {
+                                require(['jquery'], function($) {
+                                    $(this.telInput.form).on("submit", this._handleHiddenInputSubmit);
+                                }.bind(this));
+                            } else {
+                                this.telInput.form.addEventListener("submit", this._handleHiddenInputSubmit);
+                            }
+                        }
                     }
                 }, {
                     key: "_getClosestLabel",
